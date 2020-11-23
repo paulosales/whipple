@@ -1,0 +1,13 @@
+{
+  "version": 3,
+  "recordsCount": 28460,
+  "dataFiles": [
+    {
+      "version": 1,
+      "description": "Base de dados de seções do estado do ceará",
+      "size": 500747,
+      "createdAt": "2020-11-23 08:59:37.152977000 -0300",
+      "file": "/data/polling-stations.json.data"
+    }
+  ]
+}
