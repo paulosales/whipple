@@ -1,5 +1,6 @@
 {
   "name": "whipple",
+  "description": "A fast and reliable consultation of polling stations of state of Ceará, Brazil.",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
