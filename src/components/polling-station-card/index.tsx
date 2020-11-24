@@ -37,16 +37,19 @@ const PollingStationCard: React.FC<PollingStationCardProps> = (
         <div>{pollingStation?.changedTo?.zone}</div>
         <div>{pollingStation?.changedTo?.pollingStationNumber}</div>
       </PollingStationId>
-        {
-        pollingStation?.distributedPollingStations?.map( distributedPollingStation => {
+      {pollingStation?.distributedPollingStations?.map(
+        (distributedPollingStation) => {
           return (
-            <PollingStationId key={distributedPollingStation.id} changed={false}>
+            <PollingStationId
+              key={distributedPollingStation.id}
+              changed={false}
+            >
               <div>{distributedPollingStation?.zone}</div>
               <div>{distributedPollingStation?.pollingStationNumber}</div>
             </PollingStationId>
           )
-        })
         }
+      )}
       <Place>{pollingStation?.place}</Place>
       <Address>{addressParts.join(", ")}</Address>
     </PollingStationContainer>

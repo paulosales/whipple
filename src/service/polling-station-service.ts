@@ -19,11 +19,19 @@ const findPollingStation = async (
     pollingStation.city = newPollingStation.city
     pollingStation.neighborhood = newPollingStation.neighborhood
   }
-  if (pollingStation !== undefined && pollingStation.distributedPollingStationsNumbers?.length) {
+  if (
+    pollingStation !== undefined &&
+    pollingStation.distributedPollingStationsNumbers?.length
+  ) {
     pollingStation.distributedPollingStations = []
 
-    for(const distributedPollingStationNumber of pollingStation.distributedPollingStationsNumbers) {
-      pollingStation.distributedPollingStations.push(await pollingStationDB.findPollingStation(pollingStation.zone, distributedPollingStationNumber))
+    for (const distributedPollingStationNumber of pollingStation.distributedPollingStationsNumbers) {
+      pollingStation.distributedPollingStations.push(
+        await pollingStationDB.findPollingStation(
+          pollingStation.zone,
+          distributedPollingStationNumber
+        )
+      )
     }
   }
   return pollingStation
