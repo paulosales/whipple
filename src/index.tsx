@@ -7,6 +7,7 @@ import { store } from "./redux/store"
 import { createGlobalStyle } from "styled-components"
 import { mountLocalDatabase } from "./database"
 import debug from "debug"
+import register from "./service-worker-register"
 
 const log = debug("whipple:index:log")
 const error = debug("whipple:index")
@@ -57,3 +58,5 @@ mountLocalDatabase()
   .catch((e) => {
     error("Local database mounting error " + e.message)
   })
+
+register()
