@@ -8,7 +8,7 @@ export const AppContainer = styled.div`
   align-items: center;
 `
 
-export const Header =  styled.div`
+export const Header = styled.div`
   width: 310px;
   animation-name: ${fadeInAnimation};
   animation-duration: 300ms;
@@ -22,15 +22,15 @@ export const HeaderTop = styled.div`
   background-color: var(--theme-color-04-bg);
 `
 
-export const HeaderTitle =  styled.h1`
+export const HeaderTitle = styled.h1`
   margin-block-start: 0.33em;
   margin-block-end: 0.33em;
   margin-left: 0.33em;
 `
 
-export const HeaderSubtitle =  styled.h4`
-    margin-block-start: 0.33em;
-    margin-block-end: 0.33em;
+export const HeaderSubtitle = styled.h4`
+  margin-block-start: 0.33em;
+  margin-block-end: 0.33em;
 `
 
 export const Loading = styled.div<LoadingProps>`

@@ -1,6 +1,6 @@
-import styled from "styled-components";
+import styled from "styled-components"
 
-export const HamburgerMenuContainer = styled.svg`
+export const HamburgerMenu = styled.svg`
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
   transition: transform 400ms;
@@ -27,9 +27,9 @@ export const HamburgerMenuContainer = styled.svg`
 `
 
 export const HamburgerMeat = styled.path`
-  fill:none;
+  fill: none;
   transition: stroke-dasharray 400ms, stroke-dashoffset 400ms;
   stroke: var(--white);
-  stroke-width:5.5;
-  stroke-linecap:round;
+  stroke-width: 5.5;
+  stroke-linecap: round;
 `

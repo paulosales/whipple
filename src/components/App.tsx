@@ -6,8 +6,17 @@ import { RootState } from "../redux/store"
 import { DatabaseState } from "../types"
 import PollingStationQueryParameters from "./polling-station-query-parameters"
 import PollingStationQueryResult from "./polling-station-query-result"
-import { AppContainer, Header, HeaderTitle, HeaderSubtitle, Loading, LoadingIcon, LoadingMessage, HeaderTop } from "./styles"
-import HamburgerMenu from "./menu"
+import {
+  AppContainer,
+  Header,
+  HeaderTitle,
+  HeaderSubtitle,
+  Loading,
+  LoadingIcon,
+  LoadingMessage,
+  HeaderTop,
+} from "./styles"
+import Menu from "./menu"
 
 const App: React.FC = () => {
   const database = useSelector(
@@ -18,10 +27,8 @@ const App: React.FC = () => {
     <AppContainer>
       <Header>
         <HeaderTop>
-          <HeaderTitle>
-            Whipple
-          </HeaderTitle>
-          <HamburgerMenu/>
+          <HeaderTitle>Whipple</HeaderTitle>
+          <Menu />
         </HeaderTop>
         <HeaderSubtitle>
           Consulta off-line de seções eleitorais do Estado do Ceará.

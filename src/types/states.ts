@@ -1,4 +1,4 @@
-import { PollingStation } from "./models";
+import { PollingStation } from "./models"
 
 export interface MenuState {
   opened: boolean

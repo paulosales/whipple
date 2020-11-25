@@ -24,8 +24,7 @@ const PollingStationQueryParameters: React.FC = () => {
   const pollingStationNumberInputRef = useRef<HTMLInputElement>(null)
 
   const { zone, pollingStationNumber } = useSelector(
-    (state: RootState): PollingStationQueryState =>
-      state.pollingStationQuery
+    (state: RootState): PollingStationQueryState => state.pollingStationQuery
   )
 
   const zoneChanged = (value: string) => {
@@ -49,7 +48,7 @@ const PollingStationQueryParameters: React.FC = () => {
     if (zone.trim() === "") {
       if (null !== zoneInputRef && null !== zoneInputRef.current) {
         zoneInputRef.current.focus()
-        dispatch({type: POLLING_STATION_QUERY_CLEARED})
+        dispatch({ type: POLLING_STATION_QUERY_CLEARED })
         return
       }
     }
@@ -60,7 +59,7 @@ const PollingStationQueryParameters: React.FC = () => {
         null !== pollingStationNumberInputRef.current
       ) {
         pollingStationNumberInputRef.current.focus()
-        dispatch({type: POLLING_STATION_QUERY_CLEARED})
+        dispatch({ type: POLLING_STATION_QUERY_CLEARED })
         return
       }
     }
@@ -91,7 +90,7 @@ const PollingStationQueryParameters: React.FC = () => {
         onChange={(e) => pollingStationNumberChanged(e.target.value)}
       />
       <QueryButton onClick={(e) => queryPollingStation(e)}>
-        <FontAwesomeIcon icon={faSearch}/>
+        <FontAwesomeIcon icon={faSearch} />
       </QueryButton>
     </PollingStationQueryForm>
   )

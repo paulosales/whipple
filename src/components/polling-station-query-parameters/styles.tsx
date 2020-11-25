@@ -38,7 +38,7 @@ export const PollingStationInput = styled.input`
     outline: none;
     background-color: var(--white);
     box-shadow: 0 2px 3px 0 rgba(60, 64, 67, 0.302),
-    0 2px 4px 2px rgba(60, 64, 67, 0.149);
+      0 2px 4px 2px rgba(60, 64, 67, 0.149);
   }
 `
 
