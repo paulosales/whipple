@@ -10,12 +10,12 @@ import {
   AppContainer,
   Header,
   HeaderTitle,
-  HeaderSubtitle,
   Loading,
   LoadingIcon,
   LoadingMessage,
   HeaderTop,
 } from "./styles"
+import MenuButton from "./menu-button"
 import Menu from "./menu"
 
 const App: React.FC = () => {
@@ -28,11 +28,9 @@ const App: React.FC = () => {
       <Header>
         <HeaderTop>
           <HeaderTitle>Whipple</HeaderTitle>
-          <Menu />
+          <MenuButton />
         </HeaderTop>
-        <HeaderSubtitle>
-          Consulta off-line de seções eleitorais do Estado do Ceará.
-        </HeaderSubtitle>
+        <Menu/>
       </Header>
       <PollingStationQueryParameters />
       <PollingStationQueryResult />

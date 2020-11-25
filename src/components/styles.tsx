@@ -9,7 +9,7 @@ export const AppContainer = styled.div`
 `
 
 export const Header = styled.div`
-  width: 310px;
+  width: 100vw;
   animation-name: ${fadeInAnimation};
   animation-duration: 300ms;
   animation-timing-function: ease-in-out;
@@ -26,11 +26,6 @@ export const HeaderTitle = styled.h1`
   margin-block-start: 0.33em;
   margin-block-end: 0.33em;
   margin-left: 0.33em;
-`
-
-export const HeaderSubtitle = styled.h4`
-  margin-block-start: 0.33em;
-  margin-block-end: 0.33em;
 `
 
 export const Loading = styled.div<LoadingProps>`

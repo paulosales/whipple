@@ -11,3 +11,7 @@ export interface PollingStationCardIdProps {
 export interface LoadingProps {
   visible?: boolean
 }
+
+export interface MenuProps {
+  opened: boolean
+}
