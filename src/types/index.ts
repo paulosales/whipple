@@ -2,76 +2,10 @@ import { store } from "../redux/store"
 
 export type RootStateType = ReturnType<typeof store.getState>
 
-export interface PollingStationActionType {
-  type: string
-  payload: number | string
-}
+export type { MenuState, DatabaseState, PollingStationQueryState } from "./states"
 
-export interface DatabaseActionType {
-  type: string
-  payload?: number
-}
+export type { PollingStationAction, DatabaseAction, PollingStationQueryAction, MenuAction } from "./actions"
 
-export interface DatabaseStateType {
-  supported: boolean
-  loading: boolean
-  loaded: boolean
-  version: number
-}
+export type { LoadingProps, PollingStationCardIdProps, PollingStationCardProps } from "./props"
 
-export interface PollingStationType {
-  id: number
-  zone: number
-  pollingStationNumber: number
-  place: string
-  address?: string
-  neighborhood?: string
-  city: string
-  changedTo?: PollingStationType
-  distributedPollingStationsNumbers?: number[]
-  distributedPollingStations?: PollingStationType[]
-}
-
-export interface PollingStationQueryStateType {
-  zone: string
-  pollingStationNumber: string
-  quering: boolean
-  queryResult?: PollingStationType
-}
-
-export interface PollingStationQueryActionType {
-  type: string
-  payload?: string | PollingStationType
-}
-
-export interface PollingStationCardProps {
-  pollingStation: PollingStationType
-}
-
-export interface PollingStationCardIdProps {
-  changed?: boolean
-}
-
-export interface LoadingProps {
-  visible?: boolean
-}
-
-export interface DataInfoType {
-  version: number
-  recordsCount: number
-  dataFiles: DataFileType[]
-}
-
-export interface DataFileType {
-  version: number
-  description: string
-  size: number
-  createdAt: string
-  file: string
-}
-
-export interface ConfigurationType {
-  id: number
-  key: string
-  value: string
-}
+export type { Configuration, DataFile, DataInfo, PollingStation } from "./models"

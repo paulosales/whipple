@@ -1,17 +1,17 @@
-import { ConfigurationType } from "../../types"
+import { Configuration } from "../../types"
 import db from "../index"
 
 const TABLE_NAME = "configuration"
 
 const getDataVersion = async (): Promise<number> => {
-  const versionConfiguration: ConfigurationType = await db
+  const versionConfiguration: Configuration = await db
     .table(TABLE_NAME)
     .get({ key: "data-version" })
   return versionConfiguration ? Number.parseInt(versionConfiguration.value) : 0
 }
 
 const setDataVersion = async (dataVersion: number): Promise<void> => {
-  const versionConfiguration: ConfigurationType = await db
+  const versionConfiguration: Configuration = await db
     .table(TABLE_NAME)
     .get({ key: "data-version" })
   if (versionConfiguration) {

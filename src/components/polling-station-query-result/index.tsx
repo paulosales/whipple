@@ -11,7 +11,7 @@ const PollingStationQueryResult: React.FC = () => {
 
   return (
     <PollingStationQueryResultContainer>
-      <PollingStationCard pollingStation={pollingStation} />
+      {pollingStation !== undefined?<PollingStationCard pollingStation={pollingStation} />:''}
     </PollingStationQueryResultContainer>
   )
 }

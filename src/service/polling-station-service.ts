@@ -1,10 +1,10 @@
-import { PollingStationType } from "../types"
+import { PollingStation } from "../types"
 import pollingStationDB from "../database/polling-station"
 
 const findPollingStation = async (
   zone: number,
   pollingStationNumber: number
-): Promise<PollingStationType> => {
+): Promise<PollingStation> => {
   const pollingStation = await pollingStationDB.findPollingStation(
     zone,
     pollingStationNumber

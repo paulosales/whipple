@@ -1,14 +1,17 @@
+import { faSearch } from "@fortawesome/free-solid-svg-icons"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import React, { useRef } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import {
   POLLING_STATION_NUMBER_CHANGED,
+  POLLING_STATION_QUERY_CLEARED,
   POLLING_STATION_QUERY_FINISHED,
   POLLING_STATION_QUERY_STARTED,
   POLLING_STATION_ZONE_CHANGED,
 } from "../../redux/polling-station-query/actions"
 import { RootState } from "../../redux/store"
 import pollingStationService from "../../service/polling-station-service"
-import { PollingStationQueryStateType } from "../../types"
+import { PollingStationQueryState } from "../../types"
 import {
   PollingStationQueryForm,
   PollingStationInput,
@@ -21,7 +24,7 @@ const PollingStationQueryParameters: React.FC = () => {
   const pollingStationNumberInputRef = useRef<HTMLInputElement>(null)
 
   const { zone, pollingStationNumber } = useSelector(
-    (state: RootState): PollingStationQueryStateType =>
+    (state: RootState): PollingStationQueryState =>
       state.pollingStationQuery
   )
 
@@ -46,6 +49,7 @@ const PollingStationQueryParameters: React.FC = () => {
     if (zone.trim() === "") {
       if (null !== zoneInputRef && null !== zoneInputRef.current) {
         zoneInputRef.current.focus()
+        dispatch({type: POLLING_STATION_QUERY_CLEARED})
         return
       }
     }
@@ -56,6 +60,7 @@ const PollingStationQueryParameters: React.FC = () => {
         null !== pollingStationNumberInputRef.current
       ) {
         pollingStationNumberInputRef.current.focus()
+        dispatch({type: POLLING_STATION_QUERY_CLEARED})
         return
       }
     }
@@ -86,7 +91,7 @@ const PollingStationQueryParameters: React.FC = () => {
         onChange={(e) => pollingStationNumberChanged(e.target.value)}
       />
       <QueryButton onClick={(e) => queryPollingStation(e)}>
-        Consultar
+        <FontAwesomeIcon icon={faSearch}/>
       </QueryButton>
     </PollingStationQueryForm>
   )

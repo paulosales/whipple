@@ -1,10 +1,10 @@
 import db from "../index"
-import { PollingStationType } from "../../types"
+import { PollingStation } from "../../types"
 
 const TABLE_NAME = "pollingStations"
 
 const fillPollingStationTable = async (
-  pollingStations: PollingStationType[]
+  pollingStations: PollingStation[]
 ): Promise<void> => {
   await db.table(TABLE_NAME).bulkAdd(pollingStations)
 }
@@ -12,7 +12,7 @@ const fillPollingStationTable = async (
 const findPollingStation = async (
   zone: number,
   pollingStationNumber: number
-): Promise<PollingStationType> => {
+): Promise<PollingStation> => {
   return await db.table(TABLE_NAME).get({ zone, pollingStationNumber })
 }
 

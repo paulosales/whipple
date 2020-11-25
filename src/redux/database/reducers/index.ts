@@ -1,4 +1,4 @@
-import { DatabaseActionType, DatabaseStateType } from "../../../types"
+import { DatabaseAction, DatabaseState } from "../../../types"
 import {
   DATABASE_CHANGE_VERSION,
   DATABASE_LOADED,
@@ -7,7 +7,7 @@ import {
   DATABASE_NOT_SUPPORTED,
 } from "../actions"
 
-const INITIAL_STATE: DatabaseStateType = {
+const INITIAL_STATE: DatabaseState = {
   supported: true,
   loaded: false,
   loading: false,
@@ -15,9 +15,9 @@ const INITIAL_STATE: DatabaseStateType = {
 }
 
 export default (
-  state: DatabaseStateType = INITIAL_STATE,
-  action: DatabaseActionType
-): DatabaseStateType => {
+  state: DatabaseState = INITIAL_STATE,
+  action: DatabaseAction
+): DatabaseState => {
   if (action.type === DATABASE_CHANGE_VERSION) {
     return { ...state, version: <number>action.payload }
   } else if (action.type === DATABASE_LOADING) {

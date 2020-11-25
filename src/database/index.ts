@@ -9,7 +9,7 @@ import {
   DATABASE_LOAD_FAILED,
   DATABASE_LOADED,
 } from "../redux/database/actions"
-import { DataInfoType, PollingStationType } from "../types"
+import { DataInfo, PollingStation } from "../types"
 import configurationTable from "./configuration"
 import pollingStationTable from "./polling-station"
 
@@ -25,7 +25,7 @@ const decompressData = (compressedData: Uint8Array) => {
   return pako.inflate(compressedData, { to: "string" })
 }
 
-const getDataInfo = async (): Promise<DataInfoType> => {
+const getDataInfo = async (): Promise<DataInfo> => {
   log("Loading data info...")
   const response = await fetch("/data/index.json")
   if (response.ok) {
@@ -57,7 +57,7 @@ const syncLocalData = async () => {
       const jsonData = decompressData(
         new Uint8Array(await bodyData.arrayBuffer())
       )
-      const pollingStations: PollingStationType[] = JSON.parse(jsonData)
+      const pollingStations: PollingStation[] = JSON.parse(jsonData)
       try {
         await pollingStationTable.fillPollingStationTable(pollingStations)
         await configurationTable.setDataVersion(dataInfo.version)

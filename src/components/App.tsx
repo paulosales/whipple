@@ -3,18 +3,30 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faSync } from "@fortawesome/free-solid-svg-icons"
 import { useSelector } from "react-redux"
 import { RootState } from "../redux/store"
-import { DatabaseStateType } from "../types"
+import { DatabaseState } from "../types"
 import PollingStationQueryParameters from "./polling-station-query-parameters"
 import PollingStationQueryResult from "./polling-station-query-result"
-import { AppContainer, Loading, LoadingIcon, LoadingMessage } from "./styles"
+import { AppContainer, Header, HeaderTitle, HeaderSubtitle, Loading, LoadingIcon, LoadingMessage, HeaderTop } from "./styles"
+import HamburgerMenu from "./menu"
 
 const App: React.FC = () => {
   const database = useSelector(
-    (state: RootState): DatabaseStateType => state.database
+    (state: RootState): DatabaseState => state.database
   )
 
   return (
     <AppContainer>
+      <Header>
+        <HeaderTop>
+          <HeaderTitle>
+            Whipple
+          </HeaderTitle>
+          <HamburgerMenu/>
+        </HeaderTop>
+        <HeaderSubtitle>
+          Consulta off-line de seções eleitorais do Estado do Ceará.
+        </HeaderSubtitle>
+      </Header>
       <PollingStationQueryParameters />
       <PollingStationQueryResult />
       <Loading visible={database.loading}>
