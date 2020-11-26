@@ -19,6 +19,8 @@ export const HeaderTop = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.302),
+    0 1px 3px 1px rgba(60, 64, 67, 0.149);
   background-color: var(--theme-color-04-bg);
 `
 

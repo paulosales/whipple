@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import { fadeInAnimation } from "../animations"
+import { fadeInAnimation } from "../../animations"
 
 export const PollingStationQueryForm = styled.form`
   display: flex;

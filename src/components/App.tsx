@@ -4,8 +4,6 @@ import { faSync } from "@fortawesome/free-solid-svg-icons"
 import { useSelector } from "react-redux"
 import { RootState } from "../redux/store"
 import { DatabaseState } from "../types"
-import PollingStationQueryParameters from "./polling-station-query-parameters"
-import PollingStationQueryResult from "./polling-station-query-result"
 import {
   AppContainer,
   Header,
@@ -17,6 +15,10 @@ import {
 } from "./styles"
 import MenuButton from "./menu-button"
 import Menu from "./menu"
+import PollingStatinoQuery from "./polling-station-query"
+import { Route, Switch, BrowserRouter as Router } from "react-router-dom"
+import AboutWhipper from "./about/about-whipple"
+import AboutAuthor from "./about/about-author"
 
 const App: React.FC = () => {
   const database = useSelector(
@@ -25,15 +27,26 @@ const App: React.FC = () => {
 
   return (
     <AppContainer>
-      <Header>
-        <HeaderTop>
-          <HeaderTitle>Whipple</HeaderTitle>
-          <MenuButton />
-        </HeaderTop>
-        <Menu/>
-      </Header>
-      <PollingStationQueryParameters />
-      <PollingStationQueryResult />
+      <Router>
+        <Header>
+          <HeaderTop>
+            <HeaderTitle>Whipple</HeaderTitle>
+            <MenuButton />
+          </HeaderTop>
+          <Menu />
+        </Header>
+        <Switch>
+          <Route exact path="/">
+            <PollingStatinoQuery />
+          </Route>
+          <Route path="/about-whipple">
+            <AboutWhipper />
+          </Route>
+          <Route path="/about-author">
+            <AboutAuthor />
+          </Route>
+        </Switch>
+      </Router>
       <Loading visible={database.loading}>
         <LoadingIcon>
           <FontAwesomeIcon icon={faSync} spin />

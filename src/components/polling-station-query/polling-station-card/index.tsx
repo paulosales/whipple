@@ -1,5 +1,5 @@
 import React from "react"
-import { PollingStationCardProps } from "../../types"
+import { PollingStationCardProps } from "../../../types"
 import {
   PollingStationId,
   Place,

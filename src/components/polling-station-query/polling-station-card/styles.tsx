@@ -1,6 +1,6 @@
 import styled from "styled-components"
-import { PollingStationCardIdProps } from "../../types"
-import { fadeInAnimation } from "../animations"
+import { PollingStationCardIdProps } from "../../../types"
+import { fadeInAnimation } from "../../animations"
 
 export const PollingStationContainer = styled.div`
   background-color: var(--theme-color-04-bg);

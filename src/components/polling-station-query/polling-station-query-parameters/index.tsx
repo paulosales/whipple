@@ -8,10 +8,10 @@ import {
   POLLING_STATION_QUERY_FINISHED,
   POLLING_STATION_QUERY_STARTED,
   POLLING_STATION_ZONE_CHANGED,
-} from "../../redux/polling-station-query/actions"
-import { RootState } from "../../redux/store"
-import pollingStationService from "../../service/polling-station-service"
-import { PollingStationQueryState } from "../../types"
+} from "../../../redux/polling-station-query/actions"
+import { RootState } from "../../../redux/store"
+import pollingStationService from "../../../service/polling-station-service"
+import { PollingStationQueryState } from "../../../types"
 import {
   PollingStationQueryForm,
   PollingStationInput,
