@@ -5,7 +5,7 @@ import { AboutContainer, CloseButton } from "../styles"
 const AboutAuthor: React.FC = () => {
   return (
     <AboutContainer>
-      <h3>Whipper</h3>
+      <h3>Whipple</h3>
       <Link to="/">
         <CloseButton>Fechar</CloseButton>
       </Link>

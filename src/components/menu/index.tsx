@@ -21,12 +21,12 @@ const Menu: React.FC = () => {
       <MenuItems>
         <MenuItem onClick={() => toggleMenu()}>
           <Link to="/about-whipple">
-            <FontAwesomeIcon icon={faInfoCircle} /> Sobre o Wipple...
+            <FontAwesomeIcon icon={faInfoCircle} /> Sobre o Whipple...
           </Link>
         </MenuItem>
         <MenuItem onClick={() => toggleMenu()}>
           <Link to="/about-author">
-            <FontAwesomeIcon icon={faUserCircle} /> Sobre o Autor...
+            <FontAwesomeIcon icon={faUserCircle} /> Sobre o autor...
           </Link>
         </MenuItem>
       </MenuItems>
