@@ -1,11 +1,12 @@
-const cacheName = "whipple-cache-v1"
+const cacheName = "whipple-cache-v2"
 
 self.addEventListener("install", () => {
-  console.log(`Service worker ${__filename} installed.`)
+  console.log(`Service worker installed.`)
+  self.skipWaiting()
 })
 
-self.addEventListener("activate", (event) => {
-  console.log(`Service worker ${__filename} activated.`)
+self.addEventListener("activate", event => {
+  console.log(`Service worker activated.`)
   event.waitUntil(
     caches.keys().then((storedCachesNames) => {
       return Promise.all(
@@ -17,22 +18,31 @@ self.addEventListener("activate", (event) => {
       )
     })
   )
+  self.skipWaiting()
 })
 
 self.addEventListener("fetch", (event) => {
+  console.log("fetching " + event.request)
   event.respondWith(
-    fetch(event.request)
-      .then((response) => {
-        if (response && response.status === 200) {
-          let responseClone = response.clone()
+    caches.match(event.request).then((cachedResponse) => {
+      if(cachedResponse) {
+        return cachedResponse
+      }
+
+      return fetch(event.request).then((networkResponse) => {
+          console.log("fetching from network")
+          if(!networkResponse || networkResponse.status !== 200 || networkResponse.type !== 'basic') {
+            return networkResponse;
+          }
+
+          const cacheableResponse = networkResponse.clone()
 
           caches.open(cacheName).then((cache) => {
-            cache.put(event.request, responseClone)
+            cache.put(event.request, cacheableResponse)
           })
 
-          return response
-        }
-      })
-      .catch(() => caches.match(event.request).then((response) => response))
+          return networkResponse
+        })
+    })
   )
 })
