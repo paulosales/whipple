@@ -1,4 +1,8 @@
-import { faInfoCircle, faUserCircle } from "@fortawesome/free-solid-svg-icons"
+import {
+  faInfoCircle,
+  faSearch,
+  faUserCircle,
+} from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import React from "react"
 import { useDispatch, useSelector } from "react-redux"
@@ -20,13 +24,18 @@ const Menu: React.FC = () => {
     <MenuContainer opened={menu.opened}>
       <MenuItems>
         <MenuItem onClick={() => toggleMenu()}>
+          <Link to="/">
+            <FontAwesomeIcon icon={faSearch} /> Consulta de seções
+          </Link>
+        </MenuItem>
+        <MenuItem onClick={() => toggleMenu()}>
           <Link to="/about-whipple">
-            <FontAwesomeIcon icon={faInfoCircle} /> Sobre o Whipple...
+            <FontAwesomeIcon icon={faInfoCircle} /> Sobre o Whipple
           </Link>
         </MenuItem>
         <MenuItem onClick={() => toggleMenu()}>
           <Link to="/about-author">
-            <FontAwesomeIcon icon={faUserCircle} /> Sobre o autor...
+            <FontAwesomeIcon icon={faUserCircle} /> Sobre o autor
           </Link>
         </MenuItem>
       </MenuItems>

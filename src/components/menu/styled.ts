@@ -7,8 +7,9 @@ export const MenuContainer = styled.nav<MenuProps>`
   box-sizing: border-box;
   width: 100vw;
   overflow-y: hidden;
-  height: ${(props) => (props.opened ? "120px" : "0px")};
-  transition: height 400ms ease-in-out;
+  height: ${(props) => (props.opened ? "calc(100vh - 60px)" : "0px")};
+  opacity: ${(props) => (props.opened ? 1 : 0)};
+  transition: all 400ms ease-in-out;
   user-select: none;
 `
 
@@ -24,7 +25,7 @@ export const MenuItem = styled.li`
   font-size: 1.2rem;
   font-weight: 700;
   padding: 10px;
-  width: 180px;
+  width: 200px;
   cursor: pointer;
 
   a {
