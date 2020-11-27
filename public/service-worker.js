@@ -1,7 +1,20 @@
 const cacheName = "whipple-cache-v2"
+const initialCachedFiles = [
+  "/",
+  "/data/index.json",
+  "/favicon.ico",
+  "/logo180.png",
+  "/manifest.json",
+  "/autor.jpg",
+]
 
-self.addEventListener("install", () => {
+self.addEventListener("install", (event) => {
   console.log(`Service worker installed.`)
+  event.waitUntil(
+    caches.open(cacheName).then(function (cache) {
+      return cache.addAll(initialCachedFiles)
+    })
+  )
   self.skipWaiting()
 })
 
