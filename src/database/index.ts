@@ -53,9 +53,8 @@ const syncLocalData = async () => {
 
     if (response.ok) {
       log("Polling station data loaded with success.")
-      const bodyData = await response.blob()
       const jsonData = decompressData(
-        new Uint8Array(await bodyData.arrayBuffer())
+        new Uint8Array(await response.arrayBuffer())
       )
       const pollingStations: PollingStation[] = JSON.parse(jsonData)
       try {
